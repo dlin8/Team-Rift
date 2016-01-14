@@ -1,1 +1,7 @@
-a
+- Accept user input to move character
+- Allow for player-to-NPC interaction
+- Dungeon
+- Resources for building town
+- Combat
+- Initialisse world; modify world
+- Save progress; load progress
