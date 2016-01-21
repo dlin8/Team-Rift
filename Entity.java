@@ -1,15 +1,17 @@
-public class Unit{
+public class Entity{
 
     // Attributes
+    protected String icon;
     protected String dialog;
     protected int xcor;
     protected int ycor;
 
     // Constructor
-    public Unit(){	
+    public Entity(){	
 	this(-1, -1);
     }
-    public Unit(int newXcor, int newYcor){
+    public Entity(int newXcor, int newYcor){
+	icon = "[ ]";
 	dialog = "Hello!";
 	xcor = newXcor;
 	ycor = newYcor;
@@ -50,7 +52,7 @@ public class Unit{
 
     // DEBUG
     public static void main(String[] args){
-	Unit Bob = new Unit();
+	Entity Bob = new Entity();
 	System.out.println(Bob.getDialog());
 	String dialog = "I am standing on (" + Bob.getXcor() + ", " + Bob.getYcor() + ").";
 	Bob.setDialog(dialog);
