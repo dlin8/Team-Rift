@@ -14,7 +14,7 @@ public class Combatant extends Entity{
     protected int magicAttack;
     protected int magicDefense;
     protected int accuracy; //determines how likely the combatant will hit the target.
-    protected int avoidability; //determines how likely the combatant will avoid an attack.
+    protected int dodge; //determines how likely the combatant will avoid an attack.
     protected int speed; //determines which combatant will move first.
     protected int critRate; //determines the damage multiplier of a critical attack.
     protected int critChance; //determins the chance that the combatant will do a critical attack.
@@ -28,7 +28,7 @@ public class Combatant extends Entity{
 	magicAttack = 0;
 	magicDefense = 0;
 	accuracy = 0;
-	avoidability = 0;
+	dodge = 0;
 	speed = 0;
 	critRate = 0;
 	critChance = 0;
@@ -58,8 +58,8 @@ public class Combatant extends Entity{
     public int getAccuracy(){
 	return accuracy;
     }
-    public int getAvoidability(){
-	return avoidability;
+    public int getDodge(){
+	return dodge;
     }
     public int getSpeed(){
 	return speed;
