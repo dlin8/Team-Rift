@@ -1,11 +1,12 @@
 public class Combatant extends Entity{
-
     //Attributes
     /* class Combatant inherits
        protected String icon;
+       protected String name;
        protected String dialog;
        protected int xcor;
        protected int ycor;
+       protected int realm;
     */
     protected int health;
     protected int mana;
@@ -21,6 +22,7 @@ public class Combatant extends Entity{
 
     //Constructor
     public Combatant(){
+	super();
 	health = 1;
 	mana = 0;
 	attack = 0;
@@ -38,36 +40,93 @@ public class Combatant extends Entity{
     
     //Accessors
     public int getHealth(){
-	return health;
+	    return health;
     }
     public int getMana(){
-	return mana;
+	    return mana;
     }
     public int getAttack(){
-	return attack;
+	    return attack;
     }
     public int getDefense(){
-	return defense;
+	    return defense;
     }
     public int getMagicAttack(){
-	return magicAttack;
+	    return magicAttack;
     }
     public int getMagicDefense(){
-	return magicDefense;
+	    return magicDefense;
     }
     public int getAccuracy(){
-	return accuracy;
+	    return accuracy;
     }
     public int getDodge(){
-	return dodge;
+	    return dodge;
     }
     public int getSpeed(){
-	return speed;
+	    return speed;
     }
     public int getCritRate(){
-	return critRate;
+	    return critRate;
     }
     public int getCritChance(){
-	return critChance;
+	    return critChance;
+    }
+
+    //Mutators
+    public void setHealth(int newHealth){
+	    health = newHealth;
+    }
+    public void setMana(int newMana){
+	    mana = newMana;
+    }
+    public void setAttack(int newAttack){
+	    attack = newAttack;
+    }
+    public void setDefense(int newDefense){
+	    defense = newDefense;
+    }
+    public void setMagicAttack(int newMagicAttack){
+	    magicAttack = newMagicAttack;
+    }
+    public void setMagicDefense(int newMagicDefense){
+	    magicDefense = newMagicDefense;
+    }
+    public void setAccuracy(int newAccuracy){
+	    accuracy = newAccuracy;
+    }
+    public void setDodge(int newDodge){
+	    dodge = newDodge;
+    }
+    public void setSpeed(int newSpeed){
+	    speed = newSpeed;
+    }
+    public void setCritRate(int newCritRate){
+	    critRate = newCritRate;
+    }
+    public void setCritChance(int newCritChance){
+	    critChance = newCritChance;
+    }
+
+    //Methods
+    public boolean alive(){
+	    return health > 0;
+    }
+    public int damage(Combatant other){
+	    int modifiedDamage = attack;
+	    if( (Math.random() * 100 + 1) > critChance ){
+	        modifiedDamage += critRate;
+	    }
+	    if( accuracy < other.getDodge() ){
+	        if( (Math.random() * 100 + 1) > other.getDodge() - accuracy){
+		    modifiedDamage = 0;
+	        }
+	    }
+	    other.setHealth(other.getHealth() - modifiedDamage);
+	    return modifiedDamage;
+    }
+
+    public static void main(String[] args){
+    	Combatant Guy = new Combatant();
     }
 }
